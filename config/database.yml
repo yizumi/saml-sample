@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: sample-saml_development
+
+test:
+  <<: *default
+  database: sample-saml_development
+
+production:
+  <<: *default
+  url: <%= ENV['CORP_FEEDBACK_DATABASE_URL'] %>
